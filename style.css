@@ -60,14 +60,15 @@ textarea{
 }
 
 .saveBtn {
+  font-size: 40px;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
-  color: white;
+  color: black;
 }
 
 .saveBtn i:hover {
-  font-size: 20px;
+  font-size: 60px;
   transition: all .3s ease-in-out;
 }
