@@ -1,6 +1,7 @@
 var currentDay = document.getElementById("currentDay");
 var timeBlock = document.getElementById("timeBlock");
 var schedule = loadSchedule() || dummyData();
+
 var m = moment();
 //var timeNow = moment().format("h a");
 //console.log(timeNow);
@@ -14,10 +15,11 @@ function clock() {
 // event listener for the save button
 document.addEventListener("click", function (event) {
   console.log(event.target);
-  if (event.target.classList.contains("saveBtn")) {
+  if (event.target.classList.contains("nick")) {
     var i = event.target.dataset.saveindex;
+    console.log(i);
     var textAreas = document.querySelectorAll("[data-textindex='" + i + "']");
-
+    console.log('this is textarea', textAreas);
     var text = textAreas[0].value;
     console.log(text);
     schedule[i].text = text;
@@ -25,7 +27,6 @@ document.addEventListener("click", function (event) {
   }
   console.log(schedule);
 });
-
 
 
 
@@ -94,7 +95,7 @@ function createRow(o, i) {
     `<div class = "time-block row">
       <div class="hour col-md-2" >${o.time}</div>
       <textarea data-textindex = "${i}" class = "${o.timeClass} col-md-8">${o.text}</textarea>
-      <div data-saveIndex ="${i}" class = "saveBtn col-md-2"><i class="far fa-save"></i></div>
+      <div data-saveIndex ="${i}" class = "saveBtn col-md-2"><i data-saveIndex ="${i}" class="nick far fa-save"></i></div>
     </div>`;
   return row;
 }
